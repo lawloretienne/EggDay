@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#E5C2A3</color>
-    <color name="widget_preview_background">#E5C2A3</color>
-    <color name="widget_preview_text">#2E1A08</color>
+    <!-- Brown egg. Fixed rather than wallpaper-based so the egg always looks like an egg. -->
+    <color name="egg_shell">#E5C2A3</color>
+    <color name="egg_speckle">#C9A27F</color>
+    <color name="egg_shadow">#33000000</color>
+    <!-- Carton inkjet ink -->
+    <color name="egg_ink">#3A2615</color>
+
+    <color name="ic_launcher_background">#7A5638</color>
+    <color name="widget_preview_background">#FFF8F4</color>
+    <color name="widget_preview_text">#211A15</color>
+    <color name="widget_preview_label">#51443B</color>
     <color name="window_background">#FFF8F4</color>
 </resources>

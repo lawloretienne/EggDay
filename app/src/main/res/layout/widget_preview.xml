@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Static picture of the wide widget for the widget picker. Digit sizes follow EggArt. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/widget_preview_background"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="6dp">
 
-    <TextView
+    <FrameLayout
+        android:layout_width="51dp"
+        android:layout_height="70dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/egg" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="12dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="14dp"
+                android:src="@drawable/dm_2" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/dm_9" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/dm_3" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="293"
-        android:textColor="@color/widget_preview_text"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/widget_label"
-        android:textColor="@color/widget_preview_text"
-        android:textSize="11sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/widget_label"
+            android:textColor="@color/widget_preview_label"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oct 20, 2026"
+            android:textColor="@color/widget_preview_text"
+            android:textSize="14sp" />
+    </LinearLayout>
 </LinearLayout>

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="egg_shell">#B8906E</color>
+    <color name="egg_speckle">#9C7556</color>
+    <color name="egg_shadow">#66000000</color>
+    <color name="egg_ink">#2A1A0C</color>
+
+    <color name="widget_preview_background">#261E19</color>
+    <color name="widget_preview_text">#EFE0D7</color>
+    <color name="widget_preview_label">#D6C3B7</color>
     <color name="window_background">#19120D</color>
 </resources>

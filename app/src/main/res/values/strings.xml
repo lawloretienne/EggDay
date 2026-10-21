@@ -4,6 +4,7 @@
     <string name="widget_name">Egg Day</string>
     <string name="widget_description">Today\'s day of the year, to compare with the pack date on an egg carton</string>
     <string name="widget_label">DAY OF YEAR</string>
+    <string name="egg_description">Egg stamped with day %1$s of the year</string>
 
     <string name="today_label">Today is day</string>
 
@@ -17,9 +18,14 @@
         <item quantity="other">Packed %1$d days ago, on %2$s</item>
     </plurals>
 
+    <string name="weeks_scale_label">Weeks since packing</string>
+    <string name="weeks_scale_end">6+</string>
+
     <string name="howto_title">Reading a pack date</string>
     <string name="howto_body">Cartons from USDA-inspected plants show a 3-digit pack date: the day of the year the eggs were washed, graded and packed. January 1 is 001 and December 31 is 365. Compare it with today\'s number to see how long ago the eggs were packed.</string>
     <string name="howto_storage">USDA advises keeping eggs refrigerated and using them within 3 to 5 weeks of buying them.</string>
+
+    <string name="carton_description">End of an egg carton printed with plant code P-1970 and pack date 293, with the pack date circled</string>
 
     <string name="add_widget">Add widget to home screen</string>
 </resources>
