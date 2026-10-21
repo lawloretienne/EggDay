@@ -29,6 +29,12 @@ GLYPHS = {
     "9": ["01110", "10001", "10001", "01111", "00001", "00010", "01100"],
     "P": ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
     "-": ["00000", "00000", "00000", "11111", "00000", "00000", "00000"],
+    "A": ["01110", "10001", "10001", "11111", "10001", "10001", "10001"],
+    "D": ["11110", "10001", "10001", "10001", "10001", "10001", "11110"],
+    "E": ["11111", "10000", "10000", "11110", "10000", "10000", "11111"],
+    "G": ["01110", "10001", "10000", "10111", "10001", "10001", "01111"],
+    "Y": ["10001", "10001", "01010", "00100", "00100", "00100", "00100"],
+    " ": ["00000"] * 7,
 }
 DOT_RADIUS = 0.42  # in grid units; 0.5 would make neighboring dots touch
 
@@ -39,7 +45,7 @@ SHADOW = (50, 125, 30, 5)  # cx, cy, rx, ry
 SPECKLES = [  # cx, cy, rx, ry; kept clear of the stamped number (x 14-86, y 64-96)
     (36, 22, 1.6, 1.2), (58, 16, 1.2, 1.0), (66, 30, 1.8, 1.3), (44, 34, 1.1, 0.9),
     (28, 48, 1.5, 1.1), (74, 50, 1.3, 1.0), (55, 46, 1.7, 1.2), (16, 56, 1.2, 1.0),
-    (80, 114, 1.4, 1.1), (24, 102, 1.6, 1.2), (48, 110, 1.2, 1.0), (70, 104, 1.7, 1.2),
+    (62, 117, 1.4, 1.1), (24, 102, 1.6, 1.2), (48, 110, 1.2, 1.0), (70, 104, 1.7, 1.2),
     (80, 62, 1.0, 0.8), (38, 58, 1.0, 0.8),
 ]
 HIGHLIGHT = (34, 38, 11, 19, -25)  # cx, cy, rx, ry, rotation
@@ -179,6 +185,12 @@ def svg(vw, vh, shapes, size=None, background=None, resolve=lambda c: c):
                 emit(d["children"])
                 body.append("</g>")
                 continue
+            if kind == "text":  # SVG only; vector drawables can't draw text
+                c, o = argb_to_svg(d["fill"])
+                body.append(f'<text x="{d["x"]:g}" y="{d["y"]:g}" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" '
+                            f'font-size="{d["size"]:g}" font-weight="{d.get("weight", 400)}" fill="{c}" '
+                            f'fill-opacity="{o:.2f}">{d["text"]}</text>')
+                continue
             attrs = []
             if "radial" in d:
                 cx, cy, r, c0, c1 = d["radial"]
@@ -255,6 +267,22 @@ def carton_shapes():
     ]
 
 
+# Play Store feature graphic, 1024 x 500: a big stamped egg beside the dot-matrix name.
+CREAM = "#F6E9DA"
+
+
+def feature_graphic_shapes():
+    egg_scale = 2.65
+    return [
+        ("group", {"translate": (130, 68), "scale": egg_scale, "children":
+                   egg_shapes(SHELL, SPECKLE, "#40000000")
+                   + [("path", {"d": stamp_path("365", **ICON_STAMP), "fill": INK})]}),
+        ("path", {"d": dots_path("EGG DAY", 470, 150, 10), "fill": CREAM}),
+        ("text", {"x": 470, "y": 290, "size": 27, "fill": CREAM, "text": "Today\u2019s day of the year, on an egg."}),
+        ("text", {"x": 470, "y": 330, "size": 27, "fill": "#D9F6E9DA", "text": "Compare it to any carton\u2019s pack date."}),
+    ]
+
+
 def main():
     preview = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     os.makedirs(DRAWABLE, exist_ok=True)
@@ -283,11 +311,13 @@ def main():
     play = svg(108, 108, icon_foreground_shapes(), size=(512, 512), background=ICON_BG)
     with open(os.path.join(ART, "play-icon.svg"), "w") as f:
         f.write(play)
+    with open(os.path.join(ART, "feature-graphic.svg"), "w") as f:
+        f.write(svg(1024, 500, feature_graphic_shapes(), size=(1024, 500), background=ICON_BG))
     if preview:
         stamped = egg_shapes(SHELL, SPECKLE, SHADOW_C) + [("path", {"d": stamp_path("293"), "fill": INK})]
         with open(os.path.join(preview, "egg_stamped.svg"), "w") as f:
             f.write(svg(EGG_W, EGG_H, stamped, size=(544, 544)))
-    print(f"wrote {len(files)} drawables and art/play-icon.svg")
+    print(f"wrote {len(files)} drawables, art/play-icon.svg and art/feature-graphic.svg")
 
 
 if __name__ == "__main__":

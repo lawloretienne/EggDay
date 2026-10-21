@@ -55,9 +55,9 @@ The egg, dot-matrix digits, carton illustration and launcher icon are vector dra
 python3 scripts/generate_art.py
 ```
 
-It also writes `art/play-icon.svg`; `art/play-icon-512.png` is that SVG rasterized for the Play Store listing.
+It also writes the Play Store art as SVG: `art/play-icon.svg` and `art/feature-graphic.svg`. `art/play-icon-512.png` (512 × 512) and `art/feature-graphic.png` (1024 × 500, no alpha) are those SVGs rasterized for the listing.
 
-Play Store phone screenshots are in `art/screenshots/phone/`: 1080 × 1920 PNGs captured on an Android 17 emulator.
+Play Store phone screenshots are in `art/screenshots/phone/`: 1080 × 1920 PNGs (no alpha) captured on an Android 17 emulator.
 
 ## Tech
 
