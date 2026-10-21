@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Egg Day Widget</string>
+    <string name="widget_name">Egg Day</string>
+    <string name="widget_description">Today\'s day of the year, to compare with the pack date on an egg carton</string>
+    <string name="widget_label">DAY OF YEAR</string>
+
+    <string name="today_label">Today is day</string>
+
+    <string name="checker_title">Check a carton</string>
+    <string name="checker_label">Pack date</string>
+    <string name="checker_hint">The 3-digit number printed on the carton</string>
+    <string name="checker_error">Pack dates run from 001 to 365 (366 in leap years)</string>
+    <string name="checker_result_today">Packed today</string>
+    <plurals name="checker_result_days">
+        <item quantity="one">Packed %1$d day ago, on %2$s</item>
+        <item quantity="other">Packed %1$d days ago, on %2$s</item>
+    </plurals>
+
+    <string name="howto_title">Reading a pack date</string>
+    <string name="howto_body">Cartons from USDA-inspected plants show a 3-digit pack date: the day of the year the eggs were washed, graded and packed. January 1 is 001 and December 31 is 365. Compare it with today\'s number to see how long ago the eggs were packed.</string>
+    <string name="howto_storage">USDA advises keeping eggs refrigerated and using them within 3 to 5 weeks of buying them.</string>
+
+    <string name="add_widget">Add widget to home screen</string>
+</resources>
