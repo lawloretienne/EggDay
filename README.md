@@ -4,6 +4,13 @@ A home screen widget that shows today's day of the year (001–366), so you can 
 
 [Get it on Google Play](https://play.google.com/store/apps/details?id=com.etiennelawlor.eggday)
 
+<p>
+  <img src="art/screenshots/phone/01-widgets.png" width="180" alt="Egg Day widgets on a home screen">
+  <img src="art/screenshots/phone/02-today.png" width="180" alt="App showing today's day stamped on an egg">
+  <img src="art/screenshots/phone/03-carton-checker.png" width="180" alt="Pack date checker with weeks-since-packing scale">
+  <img src="art/screenshots/phone/05-dark-today.png" width="180" alt="App in dark mode">
+</p>
+
 ## Features
 
 - **Widget**: a brown egg stamped with today's day number in dotted, carton-style inkjet digits. At its smallest it's just the egg on your wallpaper; wider, it adds "DAY OF YEAR" and the date. It updates at midnight and whenever the clock or time zone changes.
@@ -49,6 +56,8 @@ python3 scripts/generate_art.py
 ```
 
 It also writes `art/play-icon.svg`; `art/play-icon-512.png` is that SVG rasterized for the Play Store listing.
+
+Play Store phone screenshots are in `art/screenshots/phone/`: 1080 × 1920 PNGs captured on an Android 17 emulator.
 
 ## Tech
 

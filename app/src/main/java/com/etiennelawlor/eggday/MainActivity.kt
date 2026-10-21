@@ -108,8 +108,9 @@ private fun EggDayScreen(today: LocalDate) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
+                // Padding outside the scroll so content stops below the status bar.
                 .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {

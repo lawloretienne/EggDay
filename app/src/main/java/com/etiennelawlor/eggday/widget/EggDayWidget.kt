@@ -97,7 +97,9 @@ private fun EggDayWidgetContent(today: LocalDate) {
     val openApp = actionStartActivity<MainActivity>()
 
     if (wide) {
-        val eggHeight = min(size.height - 12.dp, 96.dp)
+        // Taller wide widgets (2+ rows) get a bigger egg and text so they don't look empty.
+        val roomy = size.height >= 110.dp
+        val eggHeight = min(size.height - 12.dp, 128.dp)
         Row(
             modifier = GlanceModifier
                 .fillMaxSize()
@@ -109,19 +111,19 @@ private fun EggDayWidgetContent(today: LocalDate) {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             StampedEgg(today.dayOfYear, eggHeight)
-            Spacer(GlanceModifier.width(12.dp))
+            Spacer(GlanceModifier.width(if (roomy) 20.dp else 12.dp))
             Column {
                 Text(
                     text = LocalContext.current.getString(R.string.widget_label),
                     style = TextStyle(
-                        fontSize = 11.sp,
+                        fontSize = if (roomy) 14.sp else 11.sp,
                         fontWeight = FontWeight.Bold,
                         color = GlanceTheme.colors.onSurfaceVariant,
                     ),
                 )
                 Text(
                     text = today.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)),
-                    style = TextStyle(fontSize = 15.sp, color = GlanceTheme.colors.onSurface),
+                    style = TextStyle(fontSize = if (roomy) 22.sp else 15.sp, color = GlanceTheme.colors.onSurface),
                 )
             }
         }
